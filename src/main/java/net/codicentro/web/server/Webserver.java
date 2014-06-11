@@ -1,8 +1,17 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+ * @author: Alexander Villalobos Yadró
+ * @user: avillalobos
+ * @email: avyadro@yahoo.com.mx
+ * @created: Jun 11, 2014 at 11:20:09 AM
+ * @place: Ciudad de México, México
+ * @company: Planet Media México
+ * @web: http://www.planetmedia.com.mx
+ * @className: Webserver.java
+ * @purpose:
+ * Revisions:
+ * Ver        Date               Author                                      Description
+ * ---------  ---------------  -----------------------------------  ------------------------------------
+ **/
 package net.codicentro.web.server;
 
 import org.eclipse.jetty.server.Server;
@@ -10,10 +19,6 @@ import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.webapp.WebAppContext;
 import org.eclipse.jetty.xml.XmlConfiguration;
 
-/**
- *
- * @author avillalobos
- */
 public class Webserver {
 
     public static void main(String[] args) throws Exception {
