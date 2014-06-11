@@ -2,5 +2,5 @@
 <!DOCTYPE Configure PUBLIC "-//Jetty//Configure//EN" "http://www.eclipse.org/jetty/configure.dtd">
  
 <Configure class="org.eclipse.jetty.webapp.WebAppContext">
-    <Set name="war">/home/data/workspace/sagarpa/suri-web/target/suri-web-1.0-SNAPSHOT.war</Set>
+    <Set name="war">/path/name.war</Set>
 </Configure>
