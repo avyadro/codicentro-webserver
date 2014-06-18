@@ -12,6 +12,20 @@
         <maven.test.failure.ignore>true</maven.test.failure.ignore>
         <jetty.version>9.2.1.v20140609</jetty.version> 
     </properties>
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.1</version>
+                <configuration>
+                    <source>1.6</source>
+                    <target>1.6</target>
+                    <encoding>${project.build.sourceEncoding}</encoding>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <dependencies>
         <!-- ECLIPSE JETTY -->
         <dependency>
@@ -67,11 +81,11 @@
             <version>3.9.3</version>
         </dependency>
         <!-- CODICENTRO -->
-        <dependency>
-            <groupId>net.codicentro</groupId>
-            <artifactId>codicentro-libs</artifactId>
-            <version>2.0.1-SNAPSHOT</version>
-        </dependency>
+       <dependency>
+  <groupId>net.codicentro</groupId>
+  <artifactId>codicentro-libs</artifactId>
+  <version>2.0.1-ML</version>
+</dependency>
         <!-- JDBC DRIVERS -->
         <dependency>
             <groupId>com.oracle</groupId>
