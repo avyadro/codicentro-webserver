@@ -24,6 +24,37 @@
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-dependency-plugin</artifactId>
+                <version>2.8</version>
+                <executions>
+                    <execution>
+                        <id>copy-dependencies</id>
+                        <phase>package</phase>
+                        <goals>
+                            <goal>copy-dependencies</goal>
+                        </goals>
+                        <configuration>
+                            <outputDirectory>${project.build.directory}/lib</outputDirectory>
+                        </configuration>
+                    </execution>
+                </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <version>2.4</version>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>net.codicentro.web.server.Webserver</mainClass>
+                            <addClasspath>true</addClasspath>
+                            <classpathPrefix>lib/</classpathPrefix>
+                        </manifest>
+                    </archive>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
     <dependencies>
@@ -70,6 +101,12 @@
             <version>${jetty.version}</version>
         </dependency -->
    
+        
+        <dependency>
+            <groupId>jstl</groupId>
+            <artifactId>jstl</artifactId>
+            <version>1.2</version>
+        </dependency>
         <dependency>
             <groupId>javax.transaction</groupId>
             <artifactId>jta</artifactId>
@@ -81,11 +118,11 @@
             <version>3.9.3</version>
         </dependency>
         <!-- CODICENTRO -->
-       <dependency>
-  <groupId>net.codicentro</groupId>
-  <artifactId>codicentro-libs</artifactId>
-  <version>2.0.1-ML</version>
-</dependency>
+        <dependency>
+            <groupId>net.codicentro</groupId>
+            <artifactId>codicentro-libs</artifactId>
+            <version>2.0.1-SNAPSHOT</version>
+        </dependency>
         <!-- JDBC DRIVERS -->
         <dependency>
             <groupId>com.oracle</groupId>
