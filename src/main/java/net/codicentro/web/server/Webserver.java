@@ -22,7 +22,7 @@ import org.eclipse.jetty.xml.XmlConfiguration;
 public class Webserver {
 
     public static void main(String[] args) throws Exception {
-        Resource resource = Resource.newSystemResource("/jetty-http.xml");
+        Resource resource = Resource.newSystemResource("/jetty8-http.xml");
         XmlConfiguration config = new XmlConfiguration(resource.getInputStream());
         Server server = (Server) config.configure();
         resource = Resource.newSystemResource("/jetty-web-" + args[0] + ".xml");

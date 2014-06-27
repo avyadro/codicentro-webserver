@@ -10,7 +10,7 @@
         <maven.compiler.source>1.6</maven.compiler.source>
         <maven.compiler.target>1.6</maven.compiler.target>
         <maven.test.failure.ignore>true</maven.test.failure.ignore>
-        <jetty.version>9.2.1.v20140609</jetty.version> 
+        <jetty.version>8.1.15.v20140411</jetty.version>
     </properties>
     <build>
         <plugins>
@@ -94,13 +94,11 @@
             <artifactId>jetty-start</artifactId>
             <version>${jetty.version}</version>
         </dependency>
-      
-        
-        <!-- dependency>
+        <dependency>
             <groupId>org.eclipse.jetty</groupId>
             <artifactId>jetty-ajp</artifactId>
-            <version>8.1.15.v20140411</version>
-        </dependency -->
+            <version>${jetty.version}</version>
+        </dependency>
    
         
         <dependency>

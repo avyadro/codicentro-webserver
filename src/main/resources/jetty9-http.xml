@@ -59,7 +59,7 @@
         </Arg>
     </Call> 
     <!-- The Jetty AJP Connector -->
-    <!-- Call name="addConnector">        
+    <Call name="addConnector">        
         <Arg>
             <New class="org.eclipse.jetty.ajp.Ajp13SocketConnector">    
                 <Set name="port">8010</Set>                
@@ -67,7 +67,7 @@
                 <Set name="responseHeaderSize">31457280</Set>
             </New>          
         </Arg>
-    </Call --> 
+    </Call> 
     
     <Set name="handler">
         <New class="org.eclipse.jetty.server.handler.HandlerList">
