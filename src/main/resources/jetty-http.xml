@@ -57,7 +57,18 @@
                 <Set name="idleTimeout">30000</Set>
             </New>
         </Arg>
-    </Call>    
+    </Call> 
+    <!-- The Jetty AJP Connector -->
+    <!-- Call name="addConnector">        
+        <Arg>
+            <New class="org.eclipse.jetty.ajp.Ajp13SocketConnector">    
+                <Set name="port">8010</Set>                
+                <Set name="requestHeaderSize">31457280</Set>
+                <Set name="responseHeaderSize">31457280</Set>
+            </New>          
+        </Arg>
+    </Call --> 
+    
     <Set name="handler">
         <New class="org.eclipse.jetty.server.handler.HandlerList">
             <Set name="handlers">
@@ -98,7 +109,7 @@
         </Arg>
     </Call>
     <!-- DATASOURCES -->
-    <!-- New id="ssien" class="org.eclipse.jetty.plus.jndi.Resource">
+    <New id="ssien" class="org.eclipse.jetty.plus.jndi.Resource">
         <Arg></Arg>
         <Arg>jdbc/ssien</Arg>
         <Arg>
@@ -122,8 +133,8 @@
                 </Set>
             </New>
         </Arg>
-    </New -->
-    <New id="ssien" class="org.eclipse.jetty.plus.jndi.Resource">
+    </New>
+    <!-- New id="ssien" class="org.eclipse.jetty.plus.jndi.Resource">
         <Arg></Arg>
         <Arg>jdbc/ssien</Arg>
         <Arg>
@@ -147,6 +158,6 @@
                 </Set>
             </New>
         </Arg>
-    </New> 
+    </New --> 
 
 </Configure>

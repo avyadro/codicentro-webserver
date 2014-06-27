@@ -30,7 +30,7 @@ public class Webserver {
         WebAppContext wac = (WebAppContext) config.configure();
         wac.setContextPath("/" + args[0]);
         wac.setResourceAlias("/WEB-INF/classes/", "/classes/");
-      wac.setWelcomeFiles(new String[]{"mvc/index"});
+        wac.setWelcomeFiles(new String[]{"mvc/index"});
         server.setHandler(wac);
         server.setStopAtShutdown(true);
         server.start();
