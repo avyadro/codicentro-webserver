@@ -63,7 +63,7 @@
         </Arg>
     </Call>
     <!-- DATASOURCES -->
-    <New id="ssien" class="org.eclipse.jetty.plus.jndi.Resource">
+    <!-- New id="ssien" class="org.eclipse.jetty.plus.jndi.Resource">
         <Arg></Arg>
         <Arg>jdbc/ssien</Arg>
         <Arg>
@@ -85,6 +85,32 @@
                         </Call>
                     </New>
                 </Set>
+            </New>
+        </Arg>
+    </New -->
+    <!-- New id="local-suri" class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg></Arg>
+        <Arg>jdbc/suriDS</Arg>
+        <Arg>
+            <New class="org.postgresql.ds.PGSimpleDataSource">
+                <Set name="User">suri</Set>
+                <Set name="Password">suri</Set>
+                <Set name="DatabaseName">SURI</Set>
+                <Set name="ServerName">localhost</Set>
+                <Set name="PortNumber">5432</Set>  
+            </New>
+        </Arg>
+    </New -->
+    <New id="local-suri" class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg></Arg>
+        <Arg>jdbc/suriDS</Arg>
+        <Arg>
+            <New class="org.postgresql.ds.PGSimpleDataSource">
+                <Set name="User">prereg</Set>
+                <Set name="Password">oracle1</Set>
+                <Set name="DatabaseName">SURI</Set>
+                <Set name="ServerName">192.168.1.9</Set>
+                <Set name="PortNumber">5432</Set>  
             </New>
         </Arg>
     </New>
