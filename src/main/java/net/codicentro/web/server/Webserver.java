@@ -14,7 +14,10 @@
  **/
 package net.codicentro.web.server;
 
+import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
+import org.eclipse.jetty.server.handler.DefaultHandler;
+import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.webapp.WebAppContext;
 import org.eclipse.jetty.xml.XmlConfiguration;
@@ -25,13 +28,17 @@ public class Webserver {
         Resource resource = Resource.newSystemResource("/jetty8-http.xml");
         XmlConfiguration config = new XmlConfiguration(resource.getInputStream());
         Server server = (Server) config.configure();
-        resource = Resource.newSystemResource("/jetty-web-" + args[0] + ".xml");
-        config = new XmlConfiguration(resource.getInputStream());
-        WebAppContext wac = (WebAppContext) config.configure();
-        wac.setContextPath("/" + args[0]);
-        wac.setResourceAlias("/WEB-INF/classes/", "/classes/");
-        wac.setWelcomeFiles(new String[]{"mvc/index"});
-        server.setHandler(wac);
+        HandlerList handlers = new HandlerList();
+        for (String arg : args) {
+            resource = Resource.newSystemResource("/jetty-web-" + arg + ".xml");
+            config = new XmlConfiguration(resource.getInputStream());
+            WebAppContext wac = (WebAppContext) config.configure();
+            wac.setContextPath("/" + arg);
+            wac.setResourceAlias("/WEB-INF/classes/", "/classes/");
+            wac.setWelcomeFiles(new String[]{"mvc/index", "index.jsp", "index.html"});
+            handlers.addHandler(wac);
+        }
+        server.setHandler(handlers);
         server.setStopAtShutdown(true);
         server.start();
         server.join();
