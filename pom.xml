@@ -3,7 +3,7 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>net.codicentro</groupId>
     <artifactId>webserver</artifactId>
-    <version>1.0.0</version>
+    <version>1.0.2-SNAPSHOT</version>
     <packaging>jar</packaging>
     <properties>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -13,6 +13,23 @@
         <jetty.version>8.1.15.v20140411</jetty.version>
     </properties>
     <build>
+        <resources>
+            <resource>
+                <directory>src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>**/*.properties</include>
+                </includes>
+            </resource>
+            <resource>
+                <directory>src/main/resources</directory>
+                <targetPath>${project.build.directory}/conf</targetPath>
+                <filtering>false</filtering>
+                <excludes>
+                    <exclude>log4j.properties</exclude>
+                </excludes>
+            </resource>
+        </resources>    
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
