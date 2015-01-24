@@ -82,7 +82,7 @@ name="URL">jdbc:oracle:thin:@192.168.1.139:1521/ssienweb</Set>
                     <New class="java.util.Properties">
                         <Call name="setProperty">
                             <Arg>MinLimit</Arg>
-                            <Arg>10</Arg>
+                            <Arg>1</Arg>
                         </Call>
                         <Call name="setProperty">
                             <Arg>InactivityTimeout</Arg>
@@ -93,35 +93,34 @@ name="URL">jdbc:oracle:thin:@192.168.1.139:1521/ssienweb</Set>
             </New>
         </Arg>
     </New -->
-    <!-- New id="local-suri" class="org.eclipse.jetty.plus.jndi.Resource">
+    <New id="sagarpa-ventanilla" class="org.eclipse.jetty.plus.jndi.Resource">
         <Arg></Arg>
-        <Arg>jdbc/suriDS</Arg>
+        <Arg>java:/VDSPQA</Arg>
         <Arg>
             <New class="org.postgresql.ds.PGSimpleDataSource">
-                <Set name="User">suri</Set>
-                <Set name="Password">suri</Set>
-                <Set name="DatabaseName">SURI</Set>
-                <Set name="ServerName">localhost</Set>
+                <Set name="User">postgres</Set>
+                <Set name="Password">postgres</Set>
+                <Set name="DatabaseName">ventanilla</Set>
+                <Set name="ServerName">10.1.21.85</Set>
                 <Set name="PortNumber">5432</Set>
             </New>
         </Arg>
-    </New -->
+    </New>
     
     <New id="sagarpa-suri-SURI"  class="org.eclipse.jetty.plus.jndi.Resource">
         <Arg>java:/VDSQA</Arg>
         <Arg>
             <New class="oracle.jdbc.pool.OracleDataSource">
                 <Set name="DriverType">thin</Set>
-                <Set 
-                    name="URL">jdbc:oracle:thin:@10.1.21.138:1521/BDPREREG</Set>
-                <Set name="User">prereg</Set>
+                <Set name="URL">jdbc:oracle:thin:@10.1.21.138:1521/BDPREREG</Set>
+                <Set name="User">PREREG_SURI_NOR</Set>
                 <Set name="Password">oracle01</Set>
                 <Set name="connectionCachingEnabled">true</Set>
                 <Set name="connectionCacheProperties">
                     <New class="java.util.Properties">
                         <Call name="setProperty">
                             <Arg>MinLimit</Arg>
-                            <Arg>10</Arg>
+                            <Arg>1</Arg>
                         </Call>
                         <Call name="setProperty">
                             <Arg>InactivityTimeout</Arg>
@@ -159,24 +158,24 @@ name="URL">jdbc:oracle:thin:@192.168.1.139:1521/ssienweb</Set>
                              <Set name="PortNumber">5432</Set>
             </New>
         </Arg>
-    </New>
+    </New -->
     <New id="planet-sagarpa-pgesca" 
          class="org.eclipse.jetty.plus.jndi.Resource">
         <Arg></Arg>
-        <Arg>jdbc/pgescaDS</Arg>
+        <Arg>jdbc/pgescads</Arg>
         <Arg>
             <New class="oracle.jdbc.pool.OracleDataSource">
                 <Set name="DriverType">thin</Set>
-                <Set 
-                    name="URL">jdbc:oracle:thin:@201.157.37.213:1521/DWHSAG</Set>
-                <Set name="User">CARGAMAS</Set>
-                <Set name="Password">oracle1</Set>
+                <!-- Set name="URL">jdbc:oracle:thin:@192.168.14.229:1521/DWHSAG</Set -->
+                <Set name="URL">jdbc:oracle:thin:@10.1.21.129:1521/bdsuricd</Set>
+                <Set name="User">login_app</Set>
+                <Set name="Password">oracle01</Set>
                 <Set name="connectionCachingEnabled">true</Set>
                 <Set name="connectionCacheProperties">
                     <New class="java.util.Properties">
                         <Call name="setProperty">
                             <Arg>MinLimit</Arg>
-                            <Arg>10</Arg>
+                            <Arg>1</Arg>
                         </Call>
                         <Call name="setProperty">
                             <Arg>InactivityTimeout</Arg>
@@ -186,5 +185,18 @@ name="URL">jdbc:oracle:thin:@192.168.1.139:1521/ssienweb</Set>
                 </Set>
             </New>
         </Arg>
-    </New -->
+    </New>
+    <New id="planetmedia-wallet" class="org.eclipse.jetty.plus.jndi.Resource">
+        <Arg></Arg>
+        <Arg>jdbc/wallet</Arg>
+        <Arg>
+            <New class="com.mysql.jdbc.jdbc2.optional.MysqlConnectionPoolDataSource">
+                <Set name="Url">jdbc:mysql://192.168.14.229:3306/wallet</Set>
+                <Set name="User">wallet</Set>
+                <Set name="Password">w4ll3tUs3r</Set>
+           
+            </New>
+        </Arg>
+    </New>
+    
 </Configure>
