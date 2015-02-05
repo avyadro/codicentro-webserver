@@ -14,45 +14,39 @@
  **/
 package net.codicentro.web.server;
 
-import java.nio.file.Path;
-import java.nio.file.Paths;
-import net.codicentro.core.TypeCast;
+import org.apache.commons.lang.StringUtils;
 import org.eclipse.jetty.server.Server;
 import org.eclipse.jetty.server.handler.HandlerList;
 import org.eclipse.jetty.util.resource.Resource;
 import org.eclipse.jetty.webapp.WebAppContext;
 import org.eclipse.jetty.xml.XmlConfiguration;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 public class Webserver {
+
     /**
-     * Set your PATH to your WebServer target directory -> pathToWebServer/target.
-     * Either by adding to the system enviroment 
-     * Ej. 
-     * #adding to ~/.bash_profile  
-     * export WEBSERVER_HOME = pathToWebServer/target
-     * 
-     * Or modifyng the property
-     * WEBSERVER_HOME = "pathToWebServer/target".
+     * Set your PATH to your WebServer target directory ->
+     * pathToWebServer/target. Either by adding to the system enviroment Ej.
+     * #adding to ~/.bash_profile export WEBSERVER_HOME = pathToWebServer/target
+     *
+     * Or modifyng the property WEBSERVER_HOME = "pathToWebServer/target".
      */
-    private static final String WEBSERVER_HOME = "pathToWebServer/target";
+    private static final String WEBSERVER_HOME = "/Users/isaac/NetBeansProjects/sagarpa/codicentro-webserver/target";
     // private static final Logger logger = LoggerFactory.getLogger("/home/data/workspace/codicentro-webserver/target/conf/log4j.properties");
-    
+
     /**
      * The main method
+     *
      * @param args
-     * @throws Exception 
+     * @throws Exception
      */
     public static void main(String[] args) throws Exception {
 //        for (String property : System.getProperties().stringPropertyNames()) {
 //            System.out.println(property + "=" + System.getProperty(property));
 //        }
 
-        System.out.println("JAVA_HOME=" + System.getenv("JAVA_HOME"));
-        String WEBSERVER_HOME = TypeCast.isBlank(System.getenv("WEBSERVER_HOME")) ? Webserver.WEBSERVER_HOME : System.getenv("WEBSERVER_HOME");
-
-        // String WEBSERVER_HOME = System.getenv("WEBSERVER_HOME");
+        //System.out.println("JAVA_HOME=" + System.getenv("JAVA_HOME"));
+        String WEBSERVER_HOME = System.getenv("WEBSERVER_HOME");
+        WEBSERVER_HOME = StringUtils.isBlank(WEBSERVER_HOME) ? Webserver.WEBSERVER_HOME : WEBSERVER_HOME;
         System.out.println("WEBSERVER_HOME=" + WEBSERVER_HOME);
 
         Resource resource = Resource.newResource(WEBSERVER_HOME + "/conf/jetty8-http.xml");
