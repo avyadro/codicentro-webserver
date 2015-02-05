@@ -30,7 +30,7 @@ public class Webserver {
      *
      * Or modifyng the property WEBSERVER_HOME = "pathToWebServer/target".
      */
-    private static final String WEBSERVER_HOME = "/Users/isaac/NetBeansProjects/sagarpa/codicentro-webserver/target";
+    private static final String WEBSERVER_HOME = "pathToWebServer/target";
     // private static final Logger logger = LoggerFactory.getLogger("/home/data/workspace/codicentro-webserver/target/conf/log4j.properties");
 
     /**
