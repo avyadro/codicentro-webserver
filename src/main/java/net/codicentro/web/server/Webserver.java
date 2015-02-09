@@ -32,7 +32,13 @@ public class Webserver {
      */
     private static final String WEBSERVER_HOME = "pathToWebServer/target";
     // private static final Logger logger = LoggerFactory.getLogger("/home/data/workspace/codicentro-webserver/target/conf/log4j.properties");
-
+    
+    /**
+     * Path to Jetty Config. It can be jetty8-http.xml or jetty9-http.xml
+     */
+    private static final String JETTY_CONF_VERSION ="/conf/jetty8-http.xml";
+    
+    // private static final Logger logger = LoggerFactory.getLogger("/home/data/workspace/codicentro-webserver/target/conf/log4j.properties");
     /**
      * The main method
      *
@@ -49,7 +55,7 @@ public class Webserver {
         WEBSERVER_HOME = StringUtils.isBlank(WEBSERVER_HOME) ? Webserver.WEBSERVER_HOME : WEBSERVER_HOME;
         System.out.println("WEBSERVER_HOME=" + WEBSERVER_HOME);
 
-        Resource resource = Resource.newResource(WEBSERVER_HOME + "/conf/jetty8-http.xml");
+        Resource resource = Resource.newResource(WEBSERVER_HOME + Webserver.JETTY_CONF_VERSION);
         XmlConfiguration config = new XmlConfiguration(resource.getInputStream());
         Server server = (Server) config.configure();
         HandlerList handlers = new HandlerList();
